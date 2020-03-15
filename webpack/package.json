@@ -1,0 +1,40 @@
+{
+  "name": "@nerjs/webpack",
+  "version": "1.0.0",
+  "description": "frequently used webpack config",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "webpack",
+    "config",
+    "hot-loader",
+    "graphql-tag",
+    "styled-components",
+    "babel-loader"
+  ],
+  "author": "nerjs",
+  "bugs": {
+    "url": "https://github.com/nerjs/utils/labels/webpack"
+  },
+  "homepage": "https://github.com/nerjs/utils/tree/master/webpack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerjs/utils.git"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
+    "dotenv-webpack": "^1.7.0",
+    "graphql-tag": "^2.10.1",
+    "merge": "^1.2.1",
+    "react-hot-loader": "^4.12.17",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "4.42.0"
+  }
+}
