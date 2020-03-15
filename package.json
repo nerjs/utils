@@ -1,0 +1,34 @@
+{
+  "name": "@nerjs/utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerjs/utils.git"
+  },
+  "keywords": [
+    "utils",
+    "webpack",
+    "config",
+    "hot-loader",
+    "graphql-tag",
+    "styled-components"
+  ],
+  "author": "nerjs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerjs/utils/issues"
+  },
+  "homepage": "https://github.com/nerjs/utils#readme",
+  "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
+  }
+}
