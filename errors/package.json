@@ -1,22 +1,21 @@
 {
-    "name": "@nerjs/webpack",
-    "version": "1.0.1",
-    "description": "Custom errors",
-    "license": "MIT",
-    "main": "index.js",
-    "keywords": [
-      "utils",
-      "Error"
-    ],
-    "author": "nerjs",
-    "bugs": {
-      "url": "https://github.com/nerjs/utils/labels/errors"
-    },
-    "homepage": "https://github.com/nerjs/utils/tree/master/errors#readme",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/nerjs/utils.git"
-    },
-    "dependencies": {
-    }
-  }
+  "name": "@nerjs/webpack",
+  "version": "1.0.1",
+  "description": "Custom errors",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "utils",
+    "Error"
+  ],
+  "author": "nerjs",
+  "bugs": {
+    "url": "https://github.com/nerjs/utils/labels/errors"
+  },
+  "homepage": "https://github.com/nerjs/utils/tree/master/errors#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerjs/utils.git"
+  },
+  "dependencies": {}
+}
