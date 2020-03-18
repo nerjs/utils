@@ -1,6 +1,6 @@
 {
-  "name": "@nerjs/webpack",
-  "version": "1.0.1",
+  "name": "@nerjs/errors",
+  "version": "1.0.0",
   "description": "Custom errors",
   "license": "MIT",
   "main": "index.js",
