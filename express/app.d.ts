@@ -1,10 +1,12 @@
 import { Application } from "express";
 import { OptionsUrlencoded } from "body-parser";
 
+
+
 export = createApp
 
-
-declare interface ExpressAppConfig {
+declare namespace createApp {
+    export declare interface ExpressAppConfig {
 
     /**
      * @description logger morgan
@@ -43,5 +45,7 @@ declare interface ExpressAppConfig {
      */
     static?: string | [string];
 }
+}
+
 
 declare function createApp(config: ExpressAppConfig): Application;
