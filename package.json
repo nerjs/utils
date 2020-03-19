@@ -23,6 +23,5 @@
   "bugs": {
     "url": "https://github.com/nerjs/utils/issues"
   },
-  "homepage": "https://github.com/nerjs/utils#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/nerjs/utils#readme"
 }
