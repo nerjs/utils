@@ -15,12 +15,12 @@ yarn add @nerjs/express
 ```js
 const createApp = require('@nerjs/express/app')
 
-const app = createApp({/* ...config */})
+const app = createApp({/* ...appConfig */})
 ```
 
 returns [express app](https://expressjs.com/en/4x/api.html#app)
 
-#### config:
+#### appConfig:
 
 |prop name|type|default|description|
 |:--|:--:|:--:|:--|
@@ -32,6 +32,49 @@ returns [express app](https://expressjs.com/en/4x/api.html#app)
 |***favicon***|**String**||path to faficon. Use [serve-favicon](https://github.com/expressjs/serve-favicon#readme)|
 |***static***|**String** \| **[String]** || use [express.static()](https://expressjs.com/ru/4x/api.html#express.static) |
 
+
+### createHmrApp 
+
+Create [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/) with express
+
+returns [express app](https://expressjs.com/en/4x/api.html#app)
+
+```js
+const createHmrApp = require('@nerjs/express/hmr')
+```
+
+#### create express app with HMR:
+use default [appConfig](#appconfig)
+```js
+const app = createHmrApp(pathToWebpackConfig)
+```
+
+#### add HMR to [express app](https://expressjs.com/en/4x/api.html#app)
+```js
+const app = createHmrApp(app, pathToWebpackConfig)
+```
+
+
+#### create express app with config and HMR
+
+accepts a [appConfig](#appconfig) as the first argument
+
+```js
+const app = createHmrApp(appConfig, pathToWebpackConfig)
+```
+
+
+### isExpressApp
+```js
+const isExpressApp = require('@nerjs/express/lib/isExpressApp')
+const express = require('express')
+
+const app = express()
+
+
+isExpressApp(app) == true
+isExpressApp({}) == false
+```
 
 ---
 
