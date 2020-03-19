@@ -2,9 +2,8 @@ const webpack = require('webpack')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpackDevMiddleware = require('webpack-dev-middleware') 
 const createApp = require('./app')
+const isExpressApp = require('./lib/isExpressApp')
 
-
-const isExpressApp = app => app && app.request && app.request.app && app.request.app === app
 
 const getApp = (...args) => {
     console.log(args.map(a => typeof a))
