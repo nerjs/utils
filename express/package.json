@@ -1,14 +1,26 @@
 {
   "name": "@nerjs/express",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "frequently used express config",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "config",
+    "express",
+    "HMR"
+  ],
+  "author": "nerjs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nerjs/utils/labels/express"
+  },
+  "homepage": "https://github.com/nerjs/utils/tree/master/express#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerjs/utils.git"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
