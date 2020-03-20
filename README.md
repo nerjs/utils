@@ -6,3 +6,4 @@
 * [eslint config](https://github.com/nerjs/utils/tree/master/eslint#readme) (`@nerjs/eslint`)
 * [errors](https://github.com/nerjs/utils/tree/master/errors#readme) (`@nerjs/errors`)
 * [express](https://github.com/nerjs/utils/tree/master/express#readme) (`@nerjs/express`)
+* [GQL](https://github.com/nerjs/utils/tree/master/gql#readme) (`@nerjs/gql`)
