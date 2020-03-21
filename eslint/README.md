@@ -1,14 +1,17 @@
 # frequently used eslint config
 
 
+> Does not work as an extension field. Better Use [@nerjs/eslint-config](https://github.com/nerjs/utils/tree/master/eslint-config#readme)
+
+
 ## Install
 
 ```
-npm i @nerjs/webpack
+npm i @nerjs/eslint
 ```
 or
 ```
-yarn add @nerjs/webpack
+yarn add @nerjs/eslint
 ```
 
 
@@ -17,9 +20,7 @@ yarn add @nerjs/webpack
 
 file: `.eslintrc.js`
 ```js
-module.exports = {
-    extends: '@nerjs/eslint'
-}
+module.exports = require('@nerjs/eslint')
 ```
 
 

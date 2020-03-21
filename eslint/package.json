@@ -1,17 +1,15 @@
 {
   "name": "@nerjs/eslint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "frequently used eslint config",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "utils",
     "eslint",
     "config",
     "babel-eslint",
-    "prettier"
+    "prettier",
+    "@nerjs/eslint-config"
   ],
   "author": "nerjs",
   "license": "MIT",
