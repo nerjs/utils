@@ -16,7 +16,7 @@ export declare interface ApolloProviderProps {
 export declare interface ApolloProviderProps {
 
     /** @description Apollo client */
-    client: ApolloClient;
+    client: ApolloClient<any>;
 }
 
 declare const GqlProvider: FC<ApolloProviderProps>;
