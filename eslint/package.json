@@ -14,7 +14,7 @@
     "prettier"
   ],
   "author": "nerjs",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nerjs/utils/labels/eslint"
   },
