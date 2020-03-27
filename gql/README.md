@@ -83,6 +83,15 @@ const App = () => {
 |***options***|**[clientOptions](#clientoptions)**||Other client options if not use client prop|
 
 
+### Scalars (resolvers)
+
+```js
+const { ...scalars } = require('@nerjs/gql/scalars')
+```
+
+* DateResolver (scalar `Date`)
+* NumberResolver (scalar `Number`)
+
 ---
 
 

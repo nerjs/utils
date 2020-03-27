@@ -1,3 +1,1 @@
-module.exports = {
-    extends: ['./eslint'] 
-}
+module.exports =require('./eslint-config')
