@@ -1,0 +1,1 @@
+exports.validateMiddleware = require('./validate')

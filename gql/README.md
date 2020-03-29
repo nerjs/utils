@@ -92,6 +92,43 @@ const { ...scalars } = require('@nerjs/gql/scalars')
 * DateResolver (scalar `Date`)
 * NumberResolver (scalar `Number`)
 
+### gql middlewares
+
+```js
+const { ...middlewares } = require('@nerjs/gql/mdw')
+```
+
+#### validate middleware
+
+```js
+const { validateMiddleware } = require('@nerjs/gql/mdw')
+// OR:
+const validateMiddleware = require('@nerjs/gql/mdw/validate')
+
+
+const schemaMiddlewares = {
+    Query: {
+        getItem: validateMiddleware({ input: yupInputSchema })
+    }
+}
+```
+
+> Used [yup](https://github.com/jquense/yup#readme) validation
+
+***Custom (not yup) validation***
+
+> The schema must have a `.validate(input)` method
+
+```js
+const { createValidateMiddleware } = require('@nerjs/gql/mdw/validate')
+
+const validateMiddleware = createValidateMiddleware({
+    isSchemaField: '__isYupSchema__', // The property of an object, by which it is clear that this is a validator scheme
+    schemaOptions: { abortEarly: false },
+})
+```
+
+
 ---
 
 
