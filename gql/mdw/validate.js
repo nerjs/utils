@@ -17,7 +17,7 @@ const createValidateMiddleware = ({ isSchemaField, schemaOptions }) => {
     }
 }
 
-exports = module.export = createValidateMiddleware({
+exports = module.exports = createValidateMiddleware({
     isSchemaField: '__isYupSchema__',
     schemaOptions: { abortEarly: false },
 })
