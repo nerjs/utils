@@ -1,4 +1,4 @@
-const combineMiddleware = (..._fns) => {
+const combineMiddlewares = (..._fns) => {
     const fns = _fns.filter(fn => typeof fn === 'function')
 
     const fabric = (resolver, idx) => {
@@ -10,4 +10,4 @@ const combineMiddleware = (..._fns) => {
     return (resolver, ...args) => fabric(resolver, 0)(...args)
 }
 
-module.export = combineMiddleware
+module.export = combineMiddlewares

@@ -1,12 +1,14 @@
 const graphqlFields = require('graphql-fields')
 const checkType = require('../helpers/checkType')
 
-const isOnlyIdMiddleware = (
-    fieldName,
-    type = 'ObjectId',
-    fieldQueryName = 'id',
-    nullIfNotArg,
-) => async (resolver, parent, args, ctx, info) => {
+const onlyIdMiddleware = (type = 'ObjectId', fieldQueryName = 'id', nullIfNotArg) => async (
+    resolver,
+    parent,
+    args,
+    ctx,
+    info,
+) => {
+    const { fieldName } = info
     if (!parent[fieldName]) return nullIfNotArg ? null : resolver(parent, args, ctx, info)
 
     if (!checkType[type] || !checkType[type](parent[fieldName]))
@@ -20,4 +22,4 @@ const isOnlyIdMiddleware = (
     return resolver(parent, args, ctx, info)
 }
 
-module.exports = isOnlyIdMiddleware
+module.exports = onlyIdMiddleware

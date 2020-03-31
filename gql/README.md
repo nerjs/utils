@@ -101,19 +101,19 @@ const { ...middlewares } = require('@nerjs/gql/mdw')
 #### validate middleware
 
 ```js
-const { validateMiddleware } = require('@nerjs/gql/mdw')
-// OR:
 const validateMiddleware = require('@nerjs/gql/mdw/validate')
 
 
 const schemaMiddlewares = {
     Query: {
-        getItem: validateMiddleware({ input: yupInputSchema })
+        getItem: validateMiddleware({ input: yupInputSchema }),
+        getItems: validateMiddleware(yupInputSchema)
     }
 }
 ```
 
 > Used [yup](https://github.com/jquense/yup#readme) validation
+> default **errorWrapper** [YupGqlError](https://github.com/nerjs/utils/tree/master/errors#yupgqlerror)
 
 ***Custom (not yup) validation***
 
@@ -125,7 +125,55 @@ const { createValidateMiddleware } = require('@nerjs/gql/mdw/validate')
 const validateMiddleware = createValidateMiddleware({
     isSchemaField: '__isYupSchema__', // The property of an object, by which it is clear that this is a validator scheme
     schemaOptions: { abortEarly: false },
+    errorWrapper: Error
 })
+```
+
+#### notNull middleware
+
+> Prevents return NULL
+
+```js
+const notNullMiddleware = require('@nerjs/gql/mdw/notNull')
+
+const schemaMiddlewares = {
+    User: {
+        getUser: notNullMiddleware('User not found' /* error message */)
+    }
+}
+```
+
+> throw [NotFoundGqlError(message)](https://github.com/nerjs/utils/tree/master/errors#notfoundgqlerror) if resolver return null
+
+#### onlyId middleware 
+
+> Prevents unnecessary resolver calls
+
+```js
+const onlyIdMiddleware = require('@nerjs/gql/mdw/onlyId')
+
+const schemaMiddlewares = {
+    Post: {
+        author: onlyIdMiddleware()
+    }
+}
+```
+
+### combine middlewares
+
+> Combines and launches middlewares
+
+```js
+const combineMiddlewares = require('@nerjs/gql/mdw/combine')
+
+const schemaMiddlewares = {
+    Post: {
+        author: combine(
+            onlyIdMiddleware(),
+            notNullMiddleware('Not foud author')
+        )
+    }
+}
 ```
 
 
