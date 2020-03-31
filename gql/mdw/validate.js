@@ -1,7 +1,7 @@
 const YupGqlError = require('@nerjs/errors/YupGqlError')
 const GqlError = require('@nerjs/errors/GqlError')
 
-const createValidateMiddleware = ({ isSchemaField, schemaOptions }) => {
+const createValidateMiddleware = ({ isSchemaField, schemaOptions, errorWrapper }) => {
     const isSchema = obj =>
         obj && !!obj[isSchemaField] && obj.validate && typeof obj.validate === 'function'
 
@@ -17,7 +17,7 @@ const createValidateMiddleware = ({ isSchemaField, schemaOptions }) => {
                 )
             }
         } catch (e) {
-            if (e.name === 'ValidationError') throw new YupGqlError(e)
+            if (e.name === 'ValidationError') throw new errorWrapper(e)
 
             throw new GqlError('Something went wrong', GqlError.codes.INTERNAL_SERVER_ERROR, {}, e)
         }
@@ -29,6 +29,7 @@ const createValidateMiddleware = ({ isSchemaField, schemaOptions }) => {
 exports = module.exports = createValidateMiddleware({
     isSchemaField: '__isYupSchema__',
     schemaOptions: { abortEarly: false },
+    errorWrapper: YupGqlError,
 })
 
 exports.createValidateMiddleware = createValidateMiddleware
