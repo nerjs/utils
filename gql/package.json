@@ -1,6 +1,6 @@
 {
   "name": "@nerjs/gql",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Gql (apollo) config and utils",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "url": "git+https://github.com/nerjs/utils.git"
   },
   "dependencies": {
+    "@nerjs/errors": "^1.1.0",
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
     "apollo-link-batch-http": "^1.2.13",
@@ -31,7 +32,8 @@
     "graphql": "^14.6.0",
     "graphql-middleware": "^4.0.2",
     "graphql-tools": "^4.0.7",
-    "merge-graphql-schemas": "^1.7.6"
+    "merge-graphql-schemas": "^1.7.6",
+    "nlogs": "^1.1.1"
   },
   "peerDependencies": {
     "@apollo/react-hooks": "^3.1.3",

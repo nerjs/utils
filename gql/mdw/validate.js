@@ -1,16 +1,25 @@
+const YupGqlError = require('@nerjs/errors/YupGqlError')
+const GqlError = require('@nerjs/errors/GqlError')
+
 const createValidateMiddleware = ({ isSchemaField, schemaOptions }) => {
     const isSchema = obj =>
         obj && !!obj[isSchemaField] && obj.validate && typeof obj.validate === 'function'
 
     return fields => async (resolver, parent, args, ctx, info) => {
-        if (isSchema(fields)) {
-            await fields.validate(args, schemaOptions)
-        } else {
-            await Promise.all(
-                Object.keys(fields || {}).map(field =>
-                    fields[field].validate(args[field], schemaOptions),
-                ),
-            )
+        try {
+            if (isSchema(fields)) {
+                await fields.validate(args, schemaOptions)
+            } else {
+                await Promise.all(
+                    Object.keys(fields || {}).map(field =>
+                        fields[field].validate(args[field], schemaOptions),
+                    ),
+                )
+            }
+        } catch (e) {
+            if (e.name === 'ValidationError') throw new YupGqlError(e)
+
+            throw new GqlError('Something went wrong', GqlError.codes.INTERNAL_SERVER_ERROR, {}, e)
         }
 
         return resolver(parent, args, ctx, info)
