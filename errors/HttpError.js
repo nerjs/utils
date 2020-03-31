@@ -1,9 +1,6 @@
 const STATUS_CODES = require('./lib/statusCodes')
 
-
-
 class HttpError extends Error {
-
     /**
      * @class
      * @name HttpError
