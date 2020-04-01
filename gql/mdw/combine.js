@@ -10,4 +10,4 @@ const combineMiddlewares = (..._fns) => {
     return (resolver, ...args) => fabric(resolver, 0)(...args)
 }
 
-module.export = combineMiddlewares
+module.exports = combineMiddlewares

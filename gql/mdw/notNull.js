@@ -6,4 +6,4 @@ const notNullMiddleware = message => async (resolver, ...args) => {
     return res
 }
 
-module.export = notNullMiddleware
+module.exports = notNullMiddleware
