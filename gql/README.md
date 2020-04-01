@@ -159,6 +159,21 @@ const schemaMiddlewares = {
 }
 ```
 
+#### returnBoolean middleware
+
+> Returns a boolean value depending on the success of the resolver. 
+> If `preventError` is specified as true - returns false instead of an exception
+
+```js
+const returnBooleanMiddleware = require('@nerjs/gql/mdw/returnBoolean')
+
+const schemaMiddlewares = {
+    Post: {
+        author: onlyIdMiddleware(/* preventError = false */)
+    }
+}
+```
+
 ### combine middlewares
 
 > Combines and launches middlewares
