@@ -1,6 +1,6 @@
 {
   "name": "@nerjs/webpack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "frequently used webpack config",
   "license": "MIT",
   "main": "index.js",
@@ -35,6 +35,6 @@
     "merge": "^1.2.1",
     "react-hot-loader": "^4.12.20",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "4.42.0"
+    "webpack": "^4.42.1"
   }
 }
