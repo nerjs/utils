@@ -1,6 +1,6 @@
 {
   "name": "@nerjs/express",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "frequently used express config",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "merge": "^1.2.1",
     "morgan": "^1.9.1",
     "serve-favicon": "^2.5.0",
-    "webpack": "^4.42.0",
+    "webpack": "^4.42.1",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
   }
