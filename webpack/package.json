@@ -1,6 +1,6 @@
 {
   "name": "@nerjs/webpack",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "frequently used webpack config",
   "license": "MIT",
   "main": "index.js",
@@ -33,7 +33,7 @@
     "dotenv-webpack": "^1.7.0",
     "graphql-tag": "^2.10.1",
     "merge": "^1.2.1",
-    "react-hot-loader": "^4.12.17",
+    "react-hot-loader": "^4.12.20",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "4.42.0"
   }
