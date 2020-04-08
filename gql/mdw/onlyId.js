@@ -1,7 +1,7 @@
 const graphqlFields = require('graphql-fields')
 const checkType = require('../helpers/checkType')
 
-const onlyIdMiddleware = (type = 'ObjectId', fieldQueryName = 'id', nullIfNotArg) => async (
+const onlyIdMiddleware = (type = 'ObjectId', fieldQueryName = 'id', nullIfNotArg = true) => async (
     resolver,
     parent,
     args,
