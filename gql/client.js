@@ -2,8 +2,8 @@ const { BatchHttpLink } = require('apollo-link-batch-http')
 const { ApolloClient } = require('apollo-client')
 const { InMemoryCache } = require('apollo-cache-inmemory')
 
-const createClient = ({ uri }) => {
-    const httpLink = new BatchHttpLink({ uri })
+const createClient = ({ uri, ...options }) => {
+    const httpLink = new BatchHttpLink({ uri, ...options })
 
     const client = new ApolloClient({
         cache: new InMemoryCache(),
