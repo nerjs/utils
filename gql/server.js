@@ -54,6 +54,7 @@ const createGqlServer = ({
     server.applyMiddleware({
         app,
         path,
+        cors,
     })
 
     return server
