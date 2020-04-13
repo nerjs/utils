@@ -9,7 +9,7 @@ class GqlError extends Error {
         if (details && typeof details === 'object') {
             if (details.code) {
                 details._code = details.code
-                delete details.codeƒ
+                delete details.code
             }
             Object.keys(details).forEach(key => {
                 this.extensions[key] = details[key]

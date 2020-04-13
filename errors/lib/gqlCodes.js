@@ -7,4 +7,5 @@ module.exports = {
     DB: 'DB_ERROR',
     NOT_FOUND: 'NOT_FOUND_ERROR',
     UNKNOWN: 'UNKNOWN',
+    CLIENT_ERROR: 'CLIENT_ERROR',
 }
