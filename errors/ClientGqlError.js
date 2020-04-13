@@ -16,8 +16,6 @@ class ClientGqlError extends Error {
         })
 
         this.code = (ext && ext.code) || ClientGqlError.codes.CLIENT_ERROR
-
-        this.name = 'ClientGqlError'
     }
 
     get name() {
@@ -36,7 +34,9 @@ class ClientGqlError extends Error {
 
     static parseServerGqlError = (err, needPath, code, defaultMessage, strict) => {
         const error = (err.graphQLErrors || []).find(
-            gErr => this.equalPaths(gErr.path, needPath, strict) && gErr?.extensions?.code === code,
+            gErr =>
+                this.equalPaths(gErr.path, needPath, strict) &&
+                (gErr && gErr.extensions && gErr.extensions.code) === code,
         )
 
         if (!error && !defaultMessage) return null
