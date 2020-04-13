@@ -32,7 +32,11 @@ const client = createClient({/* ...clientOptions */})
 |prop name|type|required|description|
 |:--:|:--:|:--:|:--|
 |***uri***|**String**|:white_check_mark:|Graphql server endpoint. Used in [HttpLink](https://www.apollographql.com/docs/link/links/batch-http/)|
-
+|***httpOptions***|**Object**|| Other options [HttpLink](https://www.apollographql.com/docs/link/links/batch-http/#options)|
+|***wsUri***|**String**||Graphql server websocket endpoint. Used in [WebSocketLink](https://www.apollographql.com/docs/link/links/ws/)|
+|***wsOptions***|**Object**|| Other otions [WebSocketLink](https://www.apollographql.com/docs/link/links/ws/#options)|
+|***links***|**Array**|| Array of [ApolloLinks](https://www.apollographql.com/docs/link/)|
+|***onError***|**Function**||errorHandler for [apollo-link-error](https://www.apollographql.com/docs/link/links/error/)|
 
 ### createGqlServer 
 
@@ -54,6 +58,10 @@ const server = createGqlServer({/* ...serverOptions */})
 |***types***|**String**|:white_check_mark:|Path to graphql [types](https://github.com/Urigo/merge-graphql-schemas#merging-type-definitions). Used by [merge-graphql-schemas](https://github.com/Urigo/merge-graphql-schemas)|
 |***resolvers***|**String**|:white_check_mark:|Path to graphql [resolvers](https://github.com/Urigo/merge-graphql-schemas#merging-resolvers). Used by [merge-graphql-schemas](https://github.com/Urigo/merge-graphql-schemas)|
 |***middlewares***|**Array(Function \| Object)**||[graphql-middleware](https://github.com/prisma-labs/graphql-middleware)|
+|***cors***|||
+|***formatError***|||
+|***context***|||
+|***subscriptions***|||
 
 
 
@@ -76,12 +84,26 @@ const App = () => {
 
 #### providerProps
 
-|prop name|type|required|description|
-|:--:|:--:|:--:|:--|
-|***client***|**[ApolloClient](https://www.apollographql.com/docs/react/api/apollo-client/)**|:white_check_mark:| Required if not use uri prop|
-|***uri***|**String**|:white_check_mark:| If not use client prop. A [client](https://www.apollographql.com/docs/react/api/apollo-client/) will be created using [createClient()](#createclient)|
-|***options***|**[clientOptions](#clientoptions)**||Other client options if not use client prop|
+1. ***client***: (**[ApolloClient](https://www.apollographql.com/docs/react/api/apollo-client/)**): Required if not use [clientOptions](#clientoptions)
 
+or:
+
+2. `{...options}` **[clientOptions](#clientoptions)**
+
+### useGqlErrors
+
+```js
+const useGqlErrors = require('@nerjs/gql/useGqlErrors')
+// or
+import useGqlErrors from '@nerjs/gql/useGqlErrors'
+
+const { lastError } = useGqlErrors()
+```
+
+> Returns the last error
+> Does not work outside the [GqlProvider](#gqlprovider) or when using the [first option](#providerprops)
+
+---
 
 ### Scalars (resolvers)
 
