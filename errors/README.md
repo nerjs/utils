@@ -39,7 +39,7 @@ new GqlError(message: String, code: String, datails?: Object, originalError?: Er
 
 ```
 
-***codes***
+#### codes
 
 ***GqlError.codes***
 
@@ -175,6 +175,103 @@ new ApolloServer({
   },
 })
 ```
+
+## Client Gql errors
+
+> Parsing and conversion of client errors that come from the [Apollo server](https://www.apollographql.com/docs/apollo-server/)
+
+> [Error Codes](#codes) Used 
+
+### ClientGqlError
+
+
+```js
+const ClientGqlError = require('@nerjs/errors/ClientGqlError')
+
+new ClientGqlError(message: String, path: Array<String> | String , extensions = {})
+
+```
+
+***ClientGqlError.codes*** equal [Server codes](#codes)
+
+#### ClientGqlError.parseServerGqlError()
+
+> parse server errors.
+
+> Find error in [graphQLErrors](https://www.apollographql.com/docs/react/data/error-handling/)
+
+**Params**
+
+|name|type|description|
+|:--:|:--:|:--|
+|err|`Error`| Array of errors [graphQLErrors](https://www.apollographql.com/docs/react/data/error-handling/) |
+|path| `String` \|\| `Array<String>`| query path|
+|code|`Strind` | [Error code](#codes)|
+|defaultMessage|`String`|If no error is found|
+|strict|`Boolean`|A way to compare paths when searching|
+
+***recursive:***
+
+```js
+const graphQLErrors = [
+  {
+    "message": "Unauthorized",
+    "locations": [/* ... */],
+    "path": [
+      "user",
+      "id"
+    ],
+    "extensions": {
+      "code": "UNAUTHORIZED",
+      "exception": { /* ... */ }
+    }
+  }
+]
+
+ClientGqlError.parseServerGqlError(
+  graphQLErrors,
+  'user', // or ['user']
+  'UNAUTHORIZED'
+  'Default message',
+  false
+) // Not found. Returns new ClientGqlError(Default message)
+
+ClientGqlError.parseServerGqlError(
+  graphQLErrors,
+  'user', // or ['user']
+  'UNAUTHORIZED'
+  null,
+  false
+) // Not found. Returns NULL
+
+ClientGqlError.parseServerGqlError(
+  graphQLErrors,
+  ['user', 'id'],
+  'UNAUTHORIZED'
+  'Default message',
+  false
+) // Successfully Found Error. Returns new ClientGqlError(...)
+
+ClientGqlError.parseServerGqlError(
+  graphQLErrors,
+  'user', // or ['user']
+  'UNAUTHORIZED'
+  'Default message',
+  true // STRICT
+) // Successfully Found Error. Returns new ClientGqlError(...)
+```
+
+### ValidationClientGqlError 
+
+> extends [ClientGqlError](#clientgqlerror)
+
+```js
+const ValidationClientGqlError = require('@nerjs/errors/ValidationClientGqlError')
+
+new ValidationClientGqlError(message: String, path: Array<String> | String , extensions = {})
+```
+
+***ValidationClientGqlError.parseServerGqlError(graphQLErrors, path)***
 
 
 ---
