@@ -12,6 +12,7 @@ const createHttpLink = ({ uri, httpOptions = {}, wsUri, wsOptions = {} }) => {
         uri: wsUri,
         options: {
             reconnect: true,
+            lazy: true,
             ...wsOptions,
         },
     })
