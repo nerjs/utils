@@ -10,7 +10,9 @@ const Provider = ({ children, client, onError, ...clientOptions }) => {
     const onErrorHandler = React.useCallback(
         err => {
             setLastError(err)
-            return onError && typeof onError === 'function' ? onError(err) : err
+            return onError && typeof onError === 'function'
+                ? onError(err)
+                : err.forward(err.operation)
         },
         [onError, setLastError],
     )
