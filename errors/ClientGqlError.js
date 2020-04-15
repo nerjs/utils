@@ -22,9 +22,7 @@ class ClientGqlError extends Error {
         return 'ClientGqlError'
     }
 
-    static codes = gqlCodes
-
-    static equalPaths = (firstPath, secondPath, strict) => {
+    static equalPaths(firstPath, secondPath, strict) {
         if (Array.isArray(firstPath)) return equalPaths(firstPath.join('.'), secondPath, strict)
         if (Array.isArray(secondPath))
             return equalPaths(firstPath, secondPath.join('.'), recustrictrsive)
@@ -32,7 +30,7 @@ class ClientGqlError extends Error {
         return strict ? firstPath === secondPath : firstPath.search(secondPath) === 0
     }
 
-    static parseServerGqlError = (err, needPath, code, defaultMessage, strict) => {
+    static parseServerGqlError(err, needPath, code, defaultMessage, strict) {
         const error = (err.graphQLErrors || []).find(
             gErr =>
                 this.equalPaths(gErr.path, needPath, strict) &&
@@ -45,5 +43,7 @@ class ClientGqlError extends Error {
         return new this(message, path, extensions)
     }
 }
+
+ClientGqlError.codes = gqlCodes
 
 module.exports = ClientGqlError
