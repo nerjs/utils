@@ -23,9 +23,10 @@ class ClientGqlError extends Error {
     }
 
     static equalPaths(firstPath, secondPath, strict) {
-        if (Array.isArray(firstPath)) return equalPaths(firstPath.join('.'), secondPath, strict)
+        if (Array.isArray(firstPath))
+            return this.equalPaths(firstPath.join('.'), secondPath, strict)
         if (Array.isArray(secondPath))
-            return equalPaths(firstPath, secondPath.join('.'), recustrictrsive)
+            return this.equalPaths(firstPath, secondPath.join('.'), recustrictrsive)
 
         return strict ? firstPath === secondPath : firstPath.search(secondPath) === 0
     }
