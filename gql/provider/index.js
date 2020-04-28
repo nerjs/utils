@@ -5,7 +5,9 @@ const ErrorsContext = require('./ErrorsContext')
 
 const Provider = ({ children, client, onError, ...clientOptions }) => {
     const [lastError, setLastError] = React.useState(null)
-    const clientRef = React.useRef(null)
+    const [apolloClient] = React.useState(
+        () => client || createClient({ ...clientOptions, onError: onErrorHandler }),
+    )
 
     const onErrorHandler = React.useCallback(
         err => {
@@ -17,13 +19,9 @@ const Provider = ({ children, client, onError, ...clientOptions }) => {
         [onError, setLastError],
     )
 
-    if (!clientRef.current) {
-        clientRef.current = client || createClient({ ...clientOptions, onError: onErrorHandler })
-    }
-
     return React.createElement(
         ApolloProvider,
-        { client: clientRef.current },
+        { client: apolloClient },
         React.createElement(ErrorsContext.Provider, { value: { lastError } }, children),
     )
 }
