@@ -35,6 +35,6 @@
     "merge": "^1.2.1",
     "react-hot-loader": "^4.12.20",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.42.1"
+    "webpack": "^5.1.1"
   }
 }
